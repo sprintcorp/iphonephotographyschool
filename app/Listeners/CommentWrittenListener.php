@@ -27,13 +27,20 @@ class CommentWrittenListener
      */
     public function handle(CommentWritten $event)
     {
-        // Comments achievement defined as array data structure for test purpose which can therefore take more
-        // achievement but in a large scale development database would be used rather than storing in as an array
-        // within the code
+        // Defined comment achievement terms in an array data structure
         $achievement_comment = [1,3,5,10,20];
+
+        // Get total comment watched by users
         $comment_written = count($event->user->comments);
+
+        // Check if numbers of comment by users exists in the achievement comment array data structure
         if(in_array($comment_written,$achievement_comment)){
+
+            // Check to know if user's comment achievement is greater than one so as to store string representation (First)
+            // else store int value of achievement
             $achievement = $comment_written > 1 ? $comment_written. ' Comments written' : 'First Comment Written';
+
+            // Helper function to store achievement
             $achievement = new Achievement($event->user,$achievement,'comment');
             $achievement->unlock_achievement();
         }

@@ -21,10 +21,22 @@ class Achievement
 
     public function unlock_achievement()
     {
-          return Achievements::create([
+          $save_achivements = Achievements::create([
               'achievement' => $this->achievement,
               'achievement_type' => $this->achievement_type,
               'user_id' => $this->user->id
           ]);
+          $this->unlock_achievement();
+          return $save_achivements;
+    }
+
+    public function unlock_badge()
+    {
+        $badges = [
+            0 => 'Beginner',
+            4 => 'Intermediate',
+            8 => 'Advanced',
+            10 => 'Master'
+        ];
     }
 }
