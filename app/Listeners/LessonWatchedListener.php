@@ -3,6 +3,7 @@
 namespace App\Listeners;
 
 use App\Events\LessonWatched;
+use App\Services\Achievement;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
@@ -26,7 +27,6 @@ class LessonWatchedListener
      */
     public function handle(LessonWatched $event)
     {
-        $lesson_watched_achievements = count($event->user->watched);
 
     }
 }
