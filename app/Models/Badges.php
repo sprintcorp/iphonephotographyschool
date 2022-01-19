@@ -16,7 +16,9 @@ class Badges extends Model
      */
     protected $fillable = [
         'badge_name',
-        'user_id'
+        'user_id',
+        'next_badge_name',
+        'next_badge_achievement'
     ];
 
     /**

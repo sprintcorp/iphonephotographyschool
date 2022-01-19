@@ -31,7 +31,7 @@ class LessonWatchedListener
         $achievement_lesson = [1,5,10,25,50];
 
 //        Get total lessons watched by users
-        $lesson_watched_achievements = count($event->user->watched);
+        $lesson_watched_achievements = $event->user->watched->count();
 
 //        Check if numbers of lessons watched by users exists in the achievement lessons array data structure
         if(in_array($lesson_watched_achievements,$achievement_lesson)){

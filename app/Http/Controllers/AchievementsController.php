@@ -21,11 +21,11 @@ class AchievementsController extends Controller
         event(new LessonWatched($lesson,$user));
 
         return response()->json([
-            'unlocked_achievements' => [],
+            'unlocked_achievements' => $user->achievements->pluck('achievement'),
             'next_available_achievements' => [],
-            'current_badge' => '',
-            'next_badge' => '',
-            'remaing_to_unlock_next_badge' => 0
+            'current_badge' => $user->badges,
+            'next_badge' => $user->next_badge_name,
+            'remaing_to_unlock_next_badge' => $user->next_badge_achievement - $user->achievements->count()
         ]);
     }
 }
