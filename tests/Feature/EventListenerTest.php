@@ -18,13 +18,13 @@ use Tests\TestCase;
 class EventListenerTest extends TestCase
 {
     /**
-     * Test comment listener is attached to an event.
+     * Test comment written event is attached to a listener.
      *
      * @test
      *
      * @return void
      */
-    public function test_comment_is_attached_to_event()
+    public function test_comment_written_event_is_attached_to_listener()
     {
         Event::fake();
         Event::assertListening(
@@ -35,13 +35,13 @@ class EventListenerTest extends TestCase
     }
 
     /**
-     * Test lesson listener is attached to an event.
+     * Test lesson watched event is attached to a listener.
      *
      * @test
      *
      * @return void
      */
-    public function test_lesson_is_attached_to_event()
+    public function test_lesson_watched_event_is_attached_to_listener()
     {
         Event::fake();
         Event::assertListening(
@@ -51,13 +51,13 @@ class EventListenerTest extends TestCase
     }
 
     /**
-     * Test badge listener is attached to an event.
+     * Test badge event is attached to a listener.
      *
      * @test
      *
      * @return void
      */
-    public function test_badge_is_attached_to_event()
+    public function test_badge_event_is_attached_to_listener()
     {
         Event::fake();
         Event::assertListening(
