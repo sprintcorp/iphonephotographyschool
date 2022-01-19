@@ -7,7 +7,7 @@ use App\Models\Badges;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
-class BadgeListener
+class BadgeListener implements ShouldQueue
 {
     /**
      * Create the event listener.

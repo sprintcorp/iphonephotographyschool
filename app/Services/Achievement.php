@@ -25,14 +25,15 @@ class Achievement
 
     public function unlock_achievement()
     {
-          $save_achievements = Achievements::create([
-              'achievement' => $this->achievement,
-              'achievement_type' => $this->achievement_type,
-              'user_id' => $this->user->id,
-              'next_achievement' => $this->next_achievement
-          ]);
+//          $save_achievements = Achievements::create([
+//              'achievement' => $this->achievement,
+//              'achievement_type' => $this->achievement_type,
+//              'user_id' => $this->user->id,
+//              'next_achievement' => $this->next_achievement
+//          ]);
+//          if($save_achievements)
           $this->unlock_badge();
-          return $save_achievements;
+//          return $save_achievements;
     }
 
     protected function unlock_badge()
@@ -53,8 +54,8 @@ class Achievement
                 event(new BadgeEvent($this->user,$badges[0]['badge'],$badges[1]['badge'],$badges[1]['achievements']));
             }
 
-            if($this->user->achievements->count() == $badges[$key]['achievements']){
-                event(new BadgeEvent($this->user,$badges[$key]['badge'],$badges[$next_badge_index]['badge'],$badges[$next_badge_index]['achievements']));
+            if($this->user->achievements->count() === $badge['achievements']){
+                event(new BadgeEvent($this->user,$badge['badge'],$badges[$next_badge_index]['badge'],$badges[$next_badge_index]['achievements']));
             }
 
         }
