@@ -8,7 +8,6 @@ This solution uses laravel event lsiteners to watch for customers activities on 
 
 
 - Clone the project from repository using the `git clone https://github.com/sprintcorp/iphonephotographyschool.git` into a directory on your pc
-- Afterwards checkout to master branch using command `git checkout master`
 - Move to project directory `cd iphonephotographyschool` 
 - Run `composer install` to install all packages needed for the application to function which is installed from the composer.json file which creates a vendor file housing all needed application-level package manager for the application.
 - When the above step has been done you the proceed to create database, the database use during development is mysql database and Eloquent ORM is used to interact with the database,
