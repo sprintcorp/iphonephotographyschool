@@ -13,13 +13,6 @@ class AchievementsController extends Controller
 {
     public function index(User $user)
     {
-////
-//        $comment = Comment::find(1);
-//        $lesson = Lesson::find(1);
-////
-//        event(new CommentWritten($comment,$user));
-//        event(new LessonWatched($lesson,$user));
-
         $next_badge_achievement = $user->badges->next_badge_achievement ?? 0 - $user->achievements->count() > 0
             ? $user->badges->next_badge_achievement - $user->achievements->count(): 0;
 
