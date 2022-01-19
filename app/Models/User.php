@@ -80,4 +80,14 @@ class User extends Authenticatable
     {
         return $this->hasOne(Badges::class);
     }
+
+    public function next_lesson_achievement()
+    {
+        return $this->hasOne(Achievements::class)->where('achievement_type','lesson')->latest();
+    }
+
+    public function next_comment_achievement()
+    {
+        return $this->hasOne(Achievements::class)->where('achievement_type','comment')->latest();
+    }
 }

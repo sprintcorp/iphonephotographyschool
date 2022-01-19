@@ -17,7 +17,8 @@ class Achievements extends Model
     protected $fillable = [
         'achievement',
         'achievement_type',
-        'user_id'
+        'user_id',
+        'next_achievement'
     ];
 
     /**
@@ -27,4 +28,5 @@ class Achievements extends Model
     {
         return $this->belongsTo(User::class);
     }
+
 }

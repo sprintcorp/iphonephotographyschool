@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddNextBadgeNameToBadgesTable extends Migration
+class AddNextAchievementToAchievementsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class AddNextBadgeNameToBadgesTable extends Migration
      */
     public function up()
     {
-        Schema::table('badges', function (Blueprint $table) {
-            $table->string('next_badge_name');
-            $table->integer('next_badge_achievement');
+        Schema::table('achievements', function (Blueprint $table) {
+            $table->string('next_achievement');
         });
     }
 
@@ -26,8 +25,8 @@ class AddNextBadgeNameToBadgesTable extends Migration
      */
     public function down()
     {
-        Schema::table('badges', function (Blueprint $table) {
-            $table->dropColumn(['next_badge_name', 'next_badge_achievement']);
+        Schema::table('achievements', function (Blueprint $table) {
+            $table->dropColumn(['next_achievement']);
         });
     }
 }
