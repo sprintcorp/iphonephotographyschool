@@ -16,7 +16,11 @@ class Achievement
     public $next_achievement;
 
 
-    public function __construct(User $user,string $achievement,string $achievement_type,string $next_achievement){
+    public function __construct(User $user,
+                                string $achievement,
+                                string $achievement_type,
+                                string $next_achievement
+    ){
         $this->user = $user;
         $this->achievement = $achievement;
         $this->achievement_type = $achievement_type;
@@ -25,15 +29,15 @@ class Achievement
 
     public function unlock_achievement()
     {
-//          $save_achievements = Achievements::create([
-//              'achievement' => $this->achievement,
-//              'achievement_type' => $this->achievement_type,
-//              'user_id' => $this->user->id,
-//              'next_achievement' => $this->next_achievement
-//          ]);
-//          if($save_achievements)
+          $save_achievements = Achievements::create([
+              'achievement' => $this->achievement,
+              'achievement_type' => $this->achievement_type,
+              'user_id' => $this->user->id,
+              'next_achievement' => $this->next_achievement
+          ]);
+          if($save_achievements)
           $this->unlock_badge();
-//          return $save_achievements;
+          return $save_achievements;
     }
 
     protected function unlock_badge()
