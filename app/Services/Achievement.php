@@ -35,7 +35,6 @@ class Achievement
               'user_id' => $this->user->id,
               'next_achievement' => $this->next_achievement
           ]);
-          if($save_achievements)
           $this->unlock_badge();
           return $save_achievements;
     }
@@ -55,11 +54,23 @@ class Achievement
 
 
             if(!$this->user->badges){
-                event(new BadgeEvent($this->user,$badges[0]['badge'],$badges[1]['badge'],$badges[1]['achievements']));
+                event(
+                    new BadgeEvent(
+                        $this->user,$badges[0]['badge'],
+                        $badges[1]['badge'],
+                        $badges[1]['achievements']
+                    )
+                );
             }
 
             if($this->user->achievements->count() === $badge['achievements']){
-                event(new BadgeEvent($this->user,$badge['badge'],$badges[$next_badge_index]['badge'],$badges[$next_badge_index]['achievements']));
+                event(
+                    new BadgeEvent(
+                        $this->user,$badge['badge'],
+                        $badges[$next_badge_index]['badge'],
+                        $badges[$next_badge_index]['achievements']
+                    )
+                );
             }
 
         }
