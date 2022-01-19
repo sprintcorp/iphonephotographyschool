@@ -14,8 +14,8 @@ class AddNextBadgeNameToBadgesTable extends Migration
     public function up()
     {
         Schema::table('badges', function (Blueprint $table) {
-            $table->string('next_badge_name');
-            $table->integer('next_badge_achievement');
+            $table->string('next_badge_name')->nullable();
+            $table->integer('next_badge_achievement')->nullable();
         });
     }
 

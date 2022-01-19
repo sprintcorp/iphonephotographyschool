@@ -27,21 +27,12 @@ class BadgeListener
      */
     public function handle(BadgeEvent $event)
     {
-        $badges = Badges::where('user_id',$event->user->id)->first();
-        if($badges){
-            $badges->update([
-                'badge_name'=>$event->current_badge,
-                'user_id' => $event->user->id,
-                'next_badge_name' => $event->next_badge,
-                'next_badge_achievement' => $event->next_badge_achievement
-            ]);
-        }else {
-            Badges::create([
-                'badge_name' => $event->current_badge,
-                'user_id' => $event->user->id,
-                'next_badge_name' => $event->next_badge,
-                'next_badge_achievement' => $event->next_badge_achievement
-            ]);
-        }
+        Badges::updateOrCreate([
+            'user_id' => $event->user->id,
+        ], [
+            'badge_name' => $event->current_badge,
+            'next_badge_name' => $event->next_badge,
+            'next_badge_achievement' => $event->next_badge_achievement
+        ]);
     }
 }

@@ -35,7 +35,10 @@ class CommentWrittenListener
 
         // Check if numbers of comment by users exists in the achievement comment array data structure
         if(in_array($comment_written,$achievement_comment)){
-            $key = array_search($comment_written, $achievement_comment);
+
+            // Get user's next comment achievement
+            $next_comment_achievement = array_search($comment_written, $achievement_comment) + 1;
+
 
             // Check to know if user's comment achievement is greater than one so as to store string representation (First)
             // else store int value of achievement

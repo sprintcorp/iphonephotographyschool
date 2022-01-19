@@ -21,6 +21,7 @@ class Badges extends Model
         'next_badge_achievement'
     ];
 
+
     /**
      * Get the user that owns a badge.
      */

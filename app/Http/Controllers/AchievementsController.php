@@ -18,14 +18,14 @@ class AchievementsController extends Controller
         $lesson = Lesson::find(1);
 
         event(new CommentWritten($comment,$user));
-        event(new LessonWatched($lesson,$user));
+//        event(new LessonWatched($lesson,$user));
 
         return response()->json([
             'unlocked_achievements' => $user->achievements->pluck('achievement'),
             'next_available_achievements' => [],
-            'current_badge' => $user->badges,
-            'next_badge' => $user->next_badge_name,
-            'remaing_to_unlock_next_badge' => $user->next_badge_achievement - $user->achievements->count()
+            'current_badge' => $user->badges->badge_name ?? 'Beginner',
+            'next_badge' => $user->badges->next_badge_name ?? 'Intermediate',
+            'remaining_to_unlock_next_badge' => $user->achievements->count()
         ]);
     }
 }
