@@ -21,3 +21,19 @@ This solution uses laravel event lsiteners to watch for customers activities on 
 
 - Log onto `localhost:8000/users/{user}/achievements` where `{user}` is user_id
 
+#### Response
+
+    {
+        "unlocked_achievements": [
+            "First Lesson Watched",
+            "First Comment Written"
+            ],
+        "next_available_achievements": {
+            "comment_achievement": "3 Comments Written",
+            "lesson_achievement": "5 Lessons Watched"
+        },
+        "current_badge": "Beginner",
+        "next_badge": "Intermediate",
+        "remaining_to_unlock_next_badge": 4
+    }
+
