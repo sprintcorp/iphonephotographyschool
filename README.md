@@ -9,7 +9,7 @@ This solution uses laravel event lsiteners to watch for customers activities on 
 
 - Clone the project from repository using the `git clone https://github.com/sprintcorp/iphonephotographyschool.git` into a directory on your pc
 - Move to project directory `cd iphonephotographyschool` 
-- Run `composer install` to install all packages needed for the application to function which is installed from the composer.json file which creates a vendor file housing all needed application-level package manager for the application.
+- Run `composer install` to install all packages.
 - When the above step has been done you the proceed to create database, the database use during development is mysql database and Eloquent ORM is used to interact with the database,
 - Create a .env file the copy .env.example to create enviroment variable for this application which houses simple configuration text file that is used to define some variables passed into the application's environment,
 - Generate app key which is needed for the application to function properly used for all encrypted data, like sessions,Password, remember token using `php artisan key:generate`.
