@@ -41,6 +41,16 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function hasBadges()
+    {
+        return $this->badges();
+    }
+
+    public function canAcquireBadge($badge)
+    {
+        return $this->achievements->count() === $badge['achievements'];
+    }
+
     /**
      * The comments that belong to the user.
      */
